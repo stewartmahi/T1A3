@@ -98,9 +98,16 @@ while playing:
         while not can_play(current_color, card_value,[players[player_turn][card_chosen - 1]]):
 
             card_chosen = int(input('not a valid card, which card do you want to play'))
+        print(f"you played {players[player_turn.pop(card_chosen-1)]}")
         discards.append(players[player_turn].pop(card_chosen-1))
     else:
         print("you can't play, draw a card")
         players[player_turn].extend(draw_cards(1))
+    print("")
     player_turn += play_direction
+
+    if player_turn == number_players:
+        player_turn = 0
+    elif player_turn < 0: 
+        player_turn = number_players - 1
 
