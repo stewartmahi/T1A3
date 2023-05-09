@@ -36,6 +36,8 @@ def shuffle_deck(deck):
 def draw_cards(num_cards):
     cards_drawn = []
     for x in range(num_cards):
+        if not uno_deck:
+            break
         cards_drawn.append(uno_deck.pop(0))
     return cards_drawn
 
@@ -59,6 +61,7 @@ def can_play(color, value, player_hand):
             return True
         elif color in card or value in card:
             return True
+        return False
 
 
 #this will assign the uno deck we built to a variable for the deck we have#
@@ -69,6 +72,7 @@ discards = []
 print(uno_deck)
 
 players = []
+colors = ['red', 'green', 'yellow', 'blue']
 number_players = int(input('How many players? '))
 
 while number_players < 2 or number_players > 4:
@@ -98,15 +102,54 @@ while playing:
         while not can_play(current_color, card_value,[players[player_turn][card_chosen - 1]]):
 
             card_chosen = int(input('not a valid card, which card do you want to play'))
-        print(f"you played {players[player_turn.pop(card_chosen-1)]}")
+        print(f"you played {players[player_turn].pop(card_chosen-1)}")
         discards.append(players[player_turn].pop(card_chosen-1))
+        split_card = discards[-1].split(";", 1)
+        current_color = split_card[0]
+
+    if len(split_card) == 1:
+        card_value = 'any'
+    else:
+        card_value = split_card[1]
+
+    if current_color == 'wild':
+        for x in range(len(colors)):
+          print(f"{x+1} : {colors[x]}")
+        new_color = int(input('what color would you like to choose --> '))
+
+        while new_color < 1 or new_color > 4:
+            new_color = int(input('invalid option, what color would you like to choose --> '))
+
+        current_color = colors[new_color-1]
+
+    if card_value == 'reverse':
+        play_direction = play_direction * -1
+    elif card_value == 'skip':
+        player_turn += play_direction
+    
+    elif card_value == 'draw two':
+        player_draw = player_turn + play_direction
+        if player_draw == number_players:
+            player_draw = 0
+        elif player_draw < 0:
+            player_draw = number_players - 1
+        players[player_turn].extend(draw_cards(2))
+    
+    elif card_value == 'wild draw four':
+        player_draw = player_turn + play_direction
+        if player_draw == number_players:
+            player_draw = 0
+        elif player_draw < 0:
+            player_draw = number_players - 1
+        players[player_turn].extend(draw_cards(4))
     else:
         print("you can't play, draw a card")
         players[player_turn].extend(draw_cards(1))
-    print("")
+    print("")   
+
     player_turn += play_direction
 
-    if player_turn == number_players:
+    if player_turn >= number_players:
         player_turn = 0
     elif player_turn < 0: 
         player_turn = number_players - 1
