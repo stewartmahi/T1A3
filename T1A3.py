@@ -169,4 +169,12 @@ while playing:
 
                 #goes to the next person
             
-            elif
+            elif card_value == "Draw Two":
+                player_draw = player_turn + play_direction
+
+                if player_draw == number_players:
+                    player_draw = 0
+                elif player_draw < 0:
+                    player_draw = number_players - 1
+                
+                players[player_draw].extend(draw_cards(2))
