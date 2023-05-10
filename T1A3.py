@@ -68,3 +68,16 @@ def show_hand(player, player_hand):
     print("")
 
 #for this function, we print out the players hand, we use +1 in the player parameter, to allow us to have a better user experience. we do the same thing with starting of with y = 1, so that it makes it easier for the player to decide what card they want to pick
+
+"""we need to check if the player can play a card, Parameters color --> string, value --> string, player_hand --> list, Return: Boolean"""
+
+def can_play(color, value, player_hand):
+    for card in player_hand:
+        if 'Wild' in card:
+            return True
+        elif color in card or value in card:
+            return True
+        
+    return False
+
+#here we are checking the values, if the player has a wild card, they can play, returning true, and also if they have either color or value they can also play, if not they cannot play
