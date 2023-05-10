@@ -41,3 +41,14 @@ def shuffle_deck(deck):
 #this function allows us to take two positions, the card position and the random position, and allows us to switch each card in the list, with another card in a random position in the list 
 
 """Next we need a function to allow the player to draw cards at the beginning, throughout as well when the player cannot play their turn, parameter is int (number of cards) and it returns cards drawn (list)"""
+
+def draw_cards(num_cards):
+    cards_drawn = []
+    for i in range(num_cards):
+        cards_drawn.append(uno_deck.pop(0))
+    
+    return cards_drawn
+
+#in this function we start off with an empty list, which we are adding strings to, we then use the append function in conjuntion with the pop function to remove a card from the deck and then add it to cards drawn
+
+
