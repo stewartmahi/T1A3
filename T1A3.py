@@ -159,4 +159,14 @@ while playing:
             if card_value == "Reverse":
                 play_direction = play_direction * -1
 
+            elif card_value == "Skip":
+                player_turn += play_direction
+
+                if player_turn >= number_players:
+                    player_turn = 0
+                elif player_turn < 0:
+                    player_turn = number_players - 1
+
+                #goes to the next person
             
+            elif
