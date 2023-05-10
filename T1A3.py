@@ -142,3 +142,18 @@ while playing:
         
         else:
             #check for special cards
+            split_card = discards[-1].split(" ", 1)
+            current_color = split_card[0]
+            if len(split_card) == 1:
+                card_value = "Any"
+            else:
+                card_value = split_card[1]
+            
+            if current_color == "Wild":
+                for x in range(len(colors)):
+                    print(f"{x+1}) {colors[x]}")
+                new_colour = int(input("what color would you like to choose? "))
+                #this allows a player to pick another color
+                current_color = colors[new_colour - 1]
+            
+            if 
