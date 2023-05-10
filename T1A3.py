@@ -52,3 +52,19 @@ def draw_cards(num_cards):
 #in this function we start off with an empty list, which we are adding strings to, we then use the append function in conjuntion with the pop function to remove a card from the deck and then add it to cards drawn
 
 
+"""We need to create a function to print a list of players hand. Parameters are player (int) and their hand (list) and we return Nothing"""
+
+def show_hand(player, player_hand):
+
+    print(f"{player+1} Turn")
+    print("Your Hand")
+    print("-------------------")
+
+    y = 1
+
+    for card in player_hand:
+        print(f"{y}) {card}")
+        y += 1
+    print("")
+
+#for this function, we print out the players hand, we use +1 in the player parameter, to allow us to have a better user experience. we do the same thing with starting of with y = 1, so that it makes it easier for the player to decide what card they want to pick
