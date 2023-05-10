@@ -156,4 +156,7 @@ while playing:
                 #this allows a player to pick another color
                 current_color = colors[new_colour - 1]
             
-            if 
+            if card_value == "Reverse":
+                play_direction = play_direction * -1
+
+            
