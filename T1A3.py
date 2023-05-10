@@ -130,3 +130,15 @@ while playing:
 
         while not can_play(current_color, card_value, [players[player_turn][card_chosen-1]]):
             card_chosen = int(input("Not A Valid Card, What Do you Want To Play? "))
+        
+        print(f"You Played {players[player_turn][card_chosen - 1]}")
+        discards.append(players[player_turn].pop(card_chosen - 1))
+
+        #Checking to see if player won
+
+        if len(players[player_turn]) == 0:
+            playing = False
+            winner = f"Player {player_turn + 1}"
+        
+        else:
+            #check for special cards
