@@ -56,7 +56,7 @@ def draw_cards(num_cards):
 
 def show_hand(player, player_hand):
 
-    print(f"{player+1} Turn")
+    print(f"Player {player+1} it is your turn")
     print("Your Hand")
     print("-------------------")
 
