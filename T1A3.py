@@ -128,4 +128,5 @@ while playing:
     if can_play(current_color, card_value, players[player_turn]):
         card_chosen = int(input("Which card do you want to play? "))
 
-        while not can_play(current_color, card_value, players)
+        while not can_play(current_color, card_value, [players[player_turn][card_chosen-1]]):
+            card_chosen = int(input("Not A Valid Card, What Do you Want To Play? "))
