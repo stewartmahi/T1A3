@@ -192,3 +192,12 @@ while playing:
     else:
         print("you cannot play, drawa card --> ")
         players[player_turn].extend(draw_cards(1))
+
+    player_turn += play_direction
+    if player_turn >= number_players:
+        player_turn = 0
+    elif player_turn < 0:
+        player_turn = number_players - 1 
+
+print("game over")
+print(f"{winner} is the winner!")
