@@ -178,3 +178,13 @@ while playing:
                     player_draw = number_players - 1
                 
                 players[player_draw].extend(draw_cards(2))
+
+            elif "Draw Four" in card_value:
+                player_draw = player_turn + play_direction
+
+                if player_draw == number_players:
+                    player_draw = 0
+                elif player_draw < 0:
+                    player_draw = number_players - 1
+                
+                players[player_draw].extend(draw_cards(4))
