@@ -119,3 +119,13 @@ if current_color != "Wild":
 else:
     card_value = "Any"
 
+"""Simulating game environment for playing"""
+
+while playing:
+    show_hand(player_turn, players[player_turn])
+    print(f"Card on top of the discard pile: {discards[-1]}")
+
+    if can_play(current_color, card_value, players[player_turn]):
+        card_chosen = int(input("Which card do you want to play? "))
+
+        while not can_play(current_color, card_value, players)
