@@ -106,3 +106,16 @@ while True:
 for player in range(number_players):
     players.append(draw_cards(5))
 
+player_turn = 0
+play_direction = 1
+playing = True
+discards.append(uno_deck.pop(0))
+split_card = discards[0].split(" ", 1)
+current_color = split_card[0]
+
+if current_color != "Wild":
+    card_value = split_card[1]
+
+else:
+    card_value = "Any"
+
