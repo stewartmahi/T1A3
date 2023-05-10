@@ -188,3 +188,7 @@ while playing:
                     player_draw = number_players - 1
                 
                 players[player_draw].extend(draw_cards(4))
+            print("")
+    else:
+        print("you cannot play, drawa card --> ")
+        players[player_turn].extend(draw_cards(1))
