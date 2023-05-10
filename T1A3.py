@@ -81,3 +81,28 @@ def can_play(color, value, player_hand):
     return False
 
 #here we are checking the values, if the player has a wild card, they can play, returning true, and also if they have either color or value they can also play, if not they cannot play
+
+uno_deck = build_deck()
+uno_deck = shuffle_deck(uno_deck)
+uno_deck = shuffle_deck(uno_deck)
+uno_deck = shuffle_deck(uno_deck)
+
+discards = []
+
+#the discard pile is what will be on top, to start off with
+
+players = []
+colors = ["Red","Green","Yellow","Blue"]
+
+while True:
+    try:
+        number_players = int(input("How many players? "))
+        if number_players < 2 or number_players > 4:
+            raise ValueError
+        break
+    except ValueError:
+        print("Invalid input. Please enter a number between 2 and 4.")
+
+for player in range(number_players):
+    players.append(draw_cards(5))
+
