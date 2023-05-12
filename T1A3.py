@@ -1,5 +1,6 @@
 import random
 from colorama import init, Fore, Back, Style
+import sys
 
 init(autoreset=True)
 
@@ -96,6 +97,11 @@ def can_play(color, value, player_hand):
         
     return False
 
+
+def quit_game():
+    print("Game Has Ended.")
+    sys.exit()
+
 #here we are checking the values, if the player has a wild card, they can play, returning true, and also if they have either color or value they can also play, if not they cannot play
 
 uno_deck = build_deck()
@@ -118,6 +124,7 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter a number between 2 and 4.")
+        quit_game()
 
 for player in range(number_players):
     players.append(draw_cards(5))
@@ -217,3 +224,4 @@ while playing:
 
 print("game over")
 print(f"{winner} is the winner!")
+quit_game()
