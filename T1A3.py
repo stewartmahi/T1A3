@@ -190,7 +190,7 @@ while playing:
                 players[player_draw].extend(draw_cards(4))
             print("")
     else:
-        print("you cannot play, drawa card --> ")
+        print("you cannot play, draw a card --> ")
         players[player_turn].extend(draw_cards(1))
 
     player_turn += play_direction
