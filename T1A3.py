@@ -124,7 +124,7 @@ else:
     card_value = "Any"
 
 """Simulating game environment for playing"""
-
+#tried to add a try/exception but game broke
 while playing:
     show_hand(player_turn, players[player_turn])
     print(f"Card on top of the discard pile: {discards[-1]}")
