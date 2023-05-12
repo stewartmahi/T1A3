@@ -1,6 +1,7 @@
 import random
 from colorama import init, Fore, Back, Style
 
+init(autoreset=True)
 
 #we have imported random, to use throughout this entire game, because uno has a lot of randomness
 
@@ -65,7 +66,16 @@ def show_hand(player, player_hand):
         y = 1
 
         for card in player_hand:
-            print(f"{y}) {card}")
+            if "Red" in card:
+                print(f"{y}) {Fore.RED}{card}{Style.RESET_ALL}")
+            elif "Green" in card:
+                print(f"{y}) {Fore.GREEN}{card}{Style.RESET_ALL}")
+            elif "Yellow" in card:
+                print(f"{y}) {Fore.YELLOW}{card}{Style.RESET_ALL}")
+            elif "Blue" in card:
+                print(f"{y}) {Fore.BLUE}{card}{Style.RESET_ALL}")
+            else:
+                print(f"{y}) {card}")
             y += 1
         print("")
 
