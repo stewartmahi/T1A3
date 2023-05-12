@@ -217,7 +217,7 @@ while playing:
     else:
         print("you cannot play, draw a card --> ")
         players[player_turn].extend(draw_cards(1))
-        
+        time.sleep(1)
 
     player_turn += play_direction
     if player_turn >= number_players:
