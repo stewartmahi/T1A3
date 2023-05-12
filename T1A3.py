@@ -55,17 +55,21 @@ def draw_cards(num_cards):
 """We need to create a function to print a list of players hand. Parameters are player (int) and their hand (list) and we return Nothing"""
 
 def show_hand(player, player_hand):
+    try:
+        print(f"Player {player+1} it is your turn")
+        print("Your Hand")
+        print("-------------------")
 
-    print(f"Player {player+1} it is your turn")
-    print("Your Hand")
-    print("-------------------")
+        y = 1
 
-    y = 1
+        for card in player_hand:
+            print(f"{y}) {card}")
+            y += 1
+        print("")
 
-    for card in player_hand:
-        print(f"{y}) {card}")
-        y += 1
-    print("")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 
 #for this function, we print out the players hand, we use +1 in the player parameter, to allow us to have a better user experience. we do the same thing with starting of with y = 1, so that it makes it easier for the player to decide what card they want to pick
 
