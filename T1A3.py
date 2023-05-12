@@ -148,21 +148,8 @@ while playing:
     show_hand(player_turn, players[player_turn])
     print(f"Card on top of the discard pile: {discards[-1]}")
 
-    while True:
-        try:
-            if can_play(current_color, card_value, players[player_turn]):
-                card_chosen = int(input("Which card do you want to play? "))
-                if card_chosen <= 0 or card_chosen > len(players[player_turn]):
-                    print("Invalid input. Please enter a number between 1 and", len(players[player_turn]), ".")
-                else:
-                    chosen_card = players[player_turn][card_chosen-1]
-                    break
-            else:
-                print("Not a valid card. Please choose a different card.")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-
-
+    if can_play(current_color, card_value, players[player_turn]):
+        card_chosen = int(input("Which card do you want to play? "))
 
         while not can_play(current_color, card_value, [players[player_turn][card_chosen-1]]):
             card_chosen = int(input("Not A Valid Card, What Do you Want To Play? "))
