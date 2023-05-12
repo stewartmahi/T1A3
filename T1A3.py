@@ -71,12 +71,16 @@ def show_hand(player, player_hand):
         for card in player_hand:
             if "Red" in card:
                 print(f"{y}) {Fore.RED}{card}{Style.RESET_ALL}")
+
             elif "Green" in card:
                 print(f"{y}) {Fore.GREEN}{card}{Style.RESET_ALL}")
+
             elif "Yellow" in card:
                 print(f"{y}) {Fore.YELLOW}{card}{Style.RESET_ALL}")
+
             elif "Blue" in card:
                 print(f"{y}) {Fore.BLUE}{card}{Style.RESET_ALL}")
+                
             else:
                 print(f"{y}) {card}")
             y += 1
@@ -119,6 +123,7 @@ players = []
 colors = ["Red","Green","Yellow","Blue"]
 
 while True:
+
     try:
         number_players = int(input("How many players? "))
         if number_players < 2 or number_players > 4:
@@ -228,3 +233,4 @@ while playing:
 print("game over")
 print(f"{winner} is the winner!")
 quit_game()
+
